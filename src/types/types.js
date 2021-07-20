@@ -1,5 +1,5 @@
 export const types = {
-  casillasTablero: "[Config] CasillasTablero",
+  boxesBoard: "[Config] BoxesBoard",
 
-  estadoCasillaOnClick: "[Interaccion] estadoCasillasOnClick",
+  BoxStateOnClick: "[Interaction] BoxStatesOnClick",
 };

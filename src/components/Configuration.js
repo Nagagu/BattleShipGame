@@ -1,24 +1,23 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
-import { columnasDelTablero } from "../actions/casillasTablero";
+import { boardColumns } from "../actions/boxesBoard";
 
-export const Configuracion = ({ configKey }) => {
+export const Configuration = ({ configKey }) => {
   const dispatch = useDispatch();
   const ref = useRef();
   useEffect(() => {
-    dispatch(columnasDelTablero(ref.current.value, configKey));
+    dispatch(boardColumns(ref.current.value, configKey));
   }, []);
 
   const handleSelectChange = (event) => {
     const selectValue = event.target.value;
-    dispatch(columnasDelTablero(selectValue, configKey));
+    dispatch(boardColumns(selectValue, configKey));
   };
   return (
     <div>
-      <h4>Elige un tamaño de tablero</h4>
+      <h4>Choose a board size</h4>
       <select ref={ref} onChange={handleSelectChange}>
-        <option value="0">Iniciar</option>
+        <option value="0">None</option>
         <option selected value="4">
           4
         </option>

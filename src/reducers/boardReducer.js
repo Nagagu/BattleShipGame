@@ -1,0 +1,119 @@
+import Swal from "sweetalert2";
+import { types } from "../types/types";
+function getRandomElements(list, numElements) {
+  return [...list]
+    .sort(() => (Math.random() > 0.5 ? 1 : -1))
+    .slice(0, numElements);
+}
+
+const boards = [
+  {
+    columns: 0,
+    configKey: "player1",
+    boxesList: [],
+    boxesQuant: 0,
+  },
+  {
+    columns: 0,
+    configKey: "player2",
+    boxesList: [],
+    boxesQuant: 0,
+  },
+];
+const initialState = {
+  boards: boards,
+  playerTurn: getRandomElements(boards, 1)[0].configKey,
+};
+
+export const boardReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case types.boxesBoard:
+      const boxesQuant = action.payload.columns * action.payload.columns;
+      let numColumns = action.payload.columns;
+      let numRows = action.payload.columns;
+      let boxesList = getBoxesList(numRows, numColumns);
+
+      return {
+        ...state,
+        boards: [
+          ...state.boards.filter(
+            (o) => o.configKey !== action.payload.configKey && o != null
+          ),
+
+          {
+            columns: action.payload.columns,
+            configKey: action.payload.configKey,
+            boxesList: boxesList,
+            boxesQuant: boxesQuant,
+          },
+        ],
+      };
+
+    case types.BoxStateOnClick:
+      const activeBoard = state.boards.filter(
+        (o) => o.configKey === action.payload.board.configKey
+      )[0];
+
+      const BoxState = activeBoard.boxesList.filter(
+        (o) => o.id === action.payload.box.id
+      )[0];
+
+      BoxState.attacked = true;
+
+      const attackedBoxesWithShip = activeBoard.boxesList.filter(
+        (o) => o.ship === true && o.attacked === true
+      );
+
+      const boxesWithShip = activeBoard.boxesList.filter(
+        (o) => o.ship === true
+      );
+
+      if (boxesWithShip.length === attackedBoxesWithShip.length) {
+        Swal.fire({
+          title: "You win!",
+          imageUrl: "https://picsum.photos/id/828/350/250",
+          imageWidth: 350,
+          imageHeight: 250,
+          imageAlt: "Custom image",
+        });
+      }
+      switch (state.playerTurn) {
+        case "player1":
+          state.playerTurn = "player2";
+          break;
+        case "player2":
+          state.playerTurn = "player1";
+          break;
+      }
+
+      return {
+        ...state,
+      };
+
+    default:
+      return state;
+  }
+};
+
+const abc = "A B C D E F G H I J K L M N O P Q";
+const letters = abc.split(" ");
+
+function getBoxesList(numRows, numColumns) {
+  let boxesList = [];
+
+  for (let rowIdex = 0; rowIdex < numRows; rowIdex++) {
+    for (let columnIndex = 0; columnIndex < numColumns; columnIndex++) {
+      let box = {
+        id: letters[columnIndex] + (rowIdex + 1),
+        ship: false,
+        attacked: false,
+      };
+      boxesList.push(box);
+    }
+  }
+
+  const randomBoxes = getRandomElements(boxesList, numColumns * 2);
+  randomBoxes.map((o) => (o.ship = true));
+  console.log(boxesList);
+  return boxesList;
+}

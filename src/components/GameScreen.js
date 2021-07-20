@@ -5,7 +5,7 @@ import Swal from "sweetalert2";
 export const GameScreen = () => {
   useEffect(() => {
     Swal.fire({
-      title: "¡Comienza el juego!",
+      title: "Ready?, Go!",
       timer: 2000,
       willClose: () => {
         clearInterval();
@@ -15,7 +15,7 @@ export const GameScreen = () => {
 
   return (
     <div className="gameScreen">
-      <h1 className="titulo"> Hundir la flota </h1>
+      <h1 className="title"> BattleShip </h1>
       <PlayerScreen configKey={"player1"} />
       <PlayerScreen configKey={"player2"} />
     </div>

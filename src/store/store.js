@@ -1,8 +1,8 @@
 import { createStore, combineReducers } from "redux";
-import { tableroReducer } from "../reducers/tableroReducer";
+import { boardReducer } from "../reducers/boardReducer";
 
 const reducers = combineReducers({
-  config: tableroReducer,
+  config: boardReducer,
 });
 
 export const store = createStore(
