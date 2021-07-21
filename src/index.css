@@ -94,7 +94,7 @@ body {
 }
 .boardDisabled {
   transition-delay: 0.5s;
-  opacity: 30%;
+  opacity: 0.3;
 }
 
 .positionBox {
