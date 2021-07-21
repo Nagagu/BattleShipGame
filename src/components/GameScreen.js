@@ -15,9 +15,13 @@ export const GameScreen = () => {
 
   return (
     <div className="gameScreen">
-      <h1 className="title"> BattleShip </h1>
-      <PlayerScreen configKey={"player1"} />
-      <PlayerScreen configKey={"player2"} />
+      <div className="title">
+        {" "}
+        <h1> BattleShip Game </h1>
+      </div>
+
+      <PlayerScreen configKey={"Player 1"} />
+      <PlayerScreen configKey={"Player 2"} />
     </div>
   );
 };

@@ -2,52 +2,107 @@ body {
   background-color: #cfdada;
 }
 
+.title {
+  background-color: rgb(38, 51, 66);
+  color: white;
+  /* position: relative; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.title h1 {
+  text-align: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  background: -webkit-linear-gradient(yellow, red);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: tomato;
+}
+/* .title::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 10px;
+  background-size: 20px 20px;
+  background-image: radial-gradient(
+    circle at 10px -5px,
+    transparent 12px,
+    #cfdada 13px
+  );
+}
+.title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-repeat: repeat;
+  height: 15px;
+  background-size: 40px 20px;
+  background-image: radial-gradient(
+    circle at 10px 15px,
+    #cfdada 12px,
+    transparent 13px
+  );
+} */
+
+.playerScreen {
+  display: inline-block;
+  margin-top: 5vh;
+  margin-left: 20vh;
+}
+
+.configuration {
+  font-family: Arial;
+  border-radius: 10px;
+  box-shadow: 0px 0px 4px -2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  margin-left: 35px;
+  background-color: #ffffff;
+  height: 4vh;
+  width: 8vw;
+}
+.boardSizeConfig {
+  display: inline-flex;
+}
+
 .box {
-  width: 6vw;
-  height: 10vh;
-  border: 1px black solid;
-  background-color: rgb(96, 197, 208);
+  border: 1px rgb(253, 252, 252) solid;
+  /* background-color: rgb(96, 197, 208); */
 }
 .box :hover {
   background-color: rgb(221, 102, 47);
 }
 
 .board {
-  width: 0px;
   display: grid;
   grid-gap: 0px;
   top: 0px;
+  width: 35vw;
+  height: 35vw;
+  background: rgb(84, 75, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(84, 75, 238, 1) 0%,
+    rgba(17, 193, 223, 1) 64%,
+    rgba(102, 217, 251, 1) 84%
+  );
+}
+.boardDisabled {
+  transition-delay: 0.5s;
+  opacity: 30%;
 }
 
-.posiciones li {
-  list-style: none;
-}
-.rowPosition {
-  width: 100px;
-  height: 100px;
-  background-color: rgb(151, 243, 164);
-}
-.posicionesFila {
-  width: 0px;
-  display: grid;
-  grid-gap: 0px;
-  position: absolute;
-}
-.columnPosition {
-  width: 100px;
-  height: 100px;
+.positionBox {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #070b9e;
 }
 
-.gameScreen h1 {
-  background-color: rgb(38, 51, 66);
-  color: white;
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.title {
-  text-align: center;
-  padding-top: 20px;
-}
 .attackedBox {
   background-color: rgb(212, 71, 14);
   background-image: url("bomba.png");
@@ -62,17 +117,4 @@ body {
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;
-}
-.casillaConBarco {
-  background-color: rgb(98, 196, 226);
-}
-.boardDisabled {
-  transition-delay: 0.5s;
-  opacity: 30%;
-}
-
-.playerScreen {
-  display: inline-block;
-  margin-top: 5vh;
-  margin-left: 40vh;
 }

@@ -9,13 +9,13 @@ function getRandomElements(list, numElements) {
 const boards = [
   {
     columns: 0,
-    configKey: "player1",
+    configKey: "Player 1",
     boxesList: [],
     boxesQuant: 0,
   },
   {
     columns: 0,
-    configKey: "player2",
+    configKey: "Player 2",
     boxesList: [],
     boxesQuant: 0,
   },
@@ -78,11 +78,11 @@ export const boardReducer = (state = initialState, action) => {
         });
       }
       switch (state.playerTurn) {
-        case "player1":
-          state.playerTurn = "player2";
+        case "Player 1":
+          state.playerTurn = "Player 2";
           break;
-        case "player2":
-          state.playerTurn = "player1";
+        case "Player 2":
+          state.playerTurn = "Player 1";
           break;
       }
 

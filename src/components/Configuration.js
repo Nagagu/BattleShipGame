@@ -15,15 +15,21 @@ export const Configuration = ({ configKey }) => {
   };
   return (
     <div>
-      <h4>Choose a board size</h4>
-      <select ref={ref} onChange={handleSelectChange}>
-        <option value="0">None</option>
-        <option selected value="4">
-          4
-        </option>
-        <option value="8">8</option>
-        <option value="16">16</option>
-      </select>
+      <div className="boardSizeConfig">
+        <h4>Choose a board size:</h4>
+        <select
+          className="configuration"
+          ref={ref}
+          onChange={handleSelectChange}
+        >
+          <option value="0">None</option>
+          <option selected value="4">
+            4 boxes
+          </option>
+          <option value="8">8 boxes</option>
+          <option value="16">16 boxes</option>
+        </select>
+      </div>
     </div>
   );
 };

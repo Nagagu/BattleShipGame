@@ -14,7 +14,7 @@ export const Box = ({ box, board, turn, disabled }) => {
         "box " + (box.attacked ? (box.ship ? "attackedBox" : "waterBox") : " ")
       }
     >
-      {box.id}
+      <span class="positionBox">{box.id}</span>
     </div>
   );
 };
