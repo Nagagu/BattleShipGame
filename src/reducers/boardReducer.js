@@ -23,10 +23,16 @@ const boards = [
 const initialState = {
   boards: boards,
   playerTurn: getRandomElements(boards, 1)[0].configKey,
+  startedGame: false,
 };
 
 export const boardReducer = (state = initialState, action) => {
   switch (action.type) {
+    case types.startGame:
+      return {
+        ...state,
+        startedGame: true,
+      };
     case types.boxesBoard:
       const boxesQuant = action.payload.columns * action.payload.columns;
       let numColumns = action.payload.columns;

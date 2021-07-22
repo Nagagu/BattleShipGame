@@ -10,3 +10,9 @@ export const attackBox = (box, board, turn) => {
     },
   };
 };
+
+export const startGame = () => {
+  return {
+    type: types.startGame,
+  };
+};

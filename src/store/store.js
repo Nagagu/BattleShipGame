@@ -2,7 +2,7 @@ import { createStore, combineReducers } from "redux";
 import { boardReducer } from "../reducers/boardReducer";
 
 const reducers = combineReducers({
-  config: boardReducer,
+  game: boardReducer,
 });
 
 export const store = createStore(

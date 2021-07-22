@@ -16,7 +16,7 @@ export const Configuration = ({ configKey }) => {
   return (
     <div>
       <div className="boardSizeConfig">
-        <h4>Choose a board size:</h4>
+        {/* <h4>Choose a board size:</h4> */}
         <select
           className="configuration"
           ref={ref}

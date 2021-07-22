@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Box } from "./Box";
 
 export const Board = ({ configKey }) => {
-  const { boards, playerTurn } = useSelector((state) => state.config);
+  const { boards, playerTurn } = useSelector((state) => state.game);
   const configboard = boards.filter((o) => o.configKey === configKey)[0];
   console.log(playerTurn);
 
