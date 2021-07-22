@@ -30,37 +30,7 @@ export const GameScreen = () => {
         {" "}
         <h1> BattleShip Game </h1>
       </div>
-      <div className="container">
-        {" "}
-        <div className="chooseboard">
-          <h4>Choose a board size:</h4>
-        </div>
-        <div className="row justify-content-md-center">
-          <div className="col-sm-12 content-left">
-            <div className="content-left">
-              <h4>Player 1</h4> <Configuration configKey={"Player 1"} />
-            </div>
-          </div>
-          {/* </div> */}
-          {/* <div className="row"> */}
-          <div className="col-sm-12 content-right">
-            <div className="content-right"></div>
-            <h4>Player 2</h4> <Configuration configKey={"Player 2"} />
-          </div>
-        </div>
-        <div className="row justify-content-md-center">
-          {" "}
-          <div className="col-sm-12 content-right">
-            <button
-              //visibility={gameStarted ? "hidden" : " "}
-              className={"startButton" + (startedGame ? +"hidden" : " ")}
-              onClick={handleClickStart}
-            >
-              Start Game
-            </button>
-          </div>
-        </div>
-      </div>
+
       {/* <div className="boardSizeSection">
         {" "}
         <h4>Player 1</h4> <Configuration configKey={"Player 1"} />
@@ -74,12 +44,50 @@ export const GameScreen = () => {
           Start Game
         </button>
       </div> */}
-      {startedGame && (
+      {startedGame ? (
         <>
           {" "}
           <PlayerScreen configKey={"Player 1"} />
           <PlayerScreen configKey={"Player 2"} />{" "}
         </>
+      ) : (
+        <div className="container">
+          {" "}
+          <div className="chooseboard">
+            <h4>Customize your board size:</h4>
+          </div>
+          <div className="row justify-content-md-center">
+            <div className="col-sm-12 content-left">
+              <div className="content-left">
+                <div className="configKey">
+                  <h4>Player 1</h4>
+                </div>{" "}
+                <Configuration configKey={"Player 1"} />
+              </div>
+            </div>
+            {/* </div> */}
+            {/* <div className="row"> */}
+            <div className="col-sm-12 content-right">
+              <div className="content-right"></div>
+              <div className="configKey">
+                <h4>Player 2</h4>
+              </div>{" "}
+              <Configuration configKey={"Player 2"} />
+            </div>
+          </div>
+          <div className="row justify-content-md-center">
+            {" "}
+            <div className="col-sm-12 content-right">
+              <button
+                //visibility={gameStarted ? "hidden" : " "}
+                className={"startButton" + (startedGame ? +"hidden" : " ")}
+                onClick={handleClickStart}
+              >
+                Start Game
+              </button>
+            </div>
+          </div>
+        </div>
       )}
       <div className={startedGame ? "hidden" : " "}>
         <div class="ocean">

@@ -33,7 +33,6 @@ export const Board = ({ configKey }) => {
           ))}
         </div>
       </div>
-      {/* Caja personalizar tamaño */}
     </div>
   );
 };

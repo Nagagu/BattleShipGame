@@ -22,12 +22,11 @@ export const Configuration = ({ configKey }) => {
           ref={ref}
           onChange={handleSelectChange}
         >
-          <option value="0">None</option>
           <option selected value="4">
-            4 boxes
+            4 columns
           </option>
-          <option value="8">8 boxes</option>
-          <option value="16">16 boxes</option>
+          <option value="6">6 columns</option>
+          <option value="8">8 columns</option>
         </select>
       </div>
     </div>

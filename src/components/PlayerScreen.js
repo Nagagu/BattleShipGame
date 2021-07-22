@@ -6,7 +6,10 @@ export const PlayerScreen = ({ configKey }) => {
   // console.log(configKey);
   return (
     <div className="playerScreen">
-      {/* <h4>{configKey}</h4> */}
+      <div className="configKey">
+        <h4>{configKey}</h4>
+      </div>
+
       {/* <Configuration configKey={configKey} /> */}
       <Board configKey={configKey} />
     </div>

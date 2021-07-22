@@ -91,48 +91,24 @@ body {
 .hidden {
   visibility: hidden;
 }
-/* .title::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-repeat: repeat;
-  height: 10px;
-  background-size: 20px 20px;
-  background-image: radial-gradient(
-    circle at 10px -5px,
-    transparent 12px,
-    #cfdada 13px
-  );
-}
-.title::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  background-repeat: repeat;
-  height: 15px;
-  background-size: 40px 20px;
-  background-image: radial-gradient(
-    circle at 10px 15px,
-    #cfdada 12px,
-    transparent 13px
-  );
-} */
 
 .playerScreen {
   display: inline-block;
   margin-top: 5vh;
-  margin-left: 20vh;
+  margin-left: 14vw;
+}
+.configKey {
+  color: #1d9292;
+  margin-bottom: 15px;
 }
 .chooseboard {
   text-align: -webkit-center;
-  margin: 4vh 0px 3vh 0px;
+  margin: 2vh 0px 4vh 0px;
+  color: #044a5f;
 }
 .content-left {
   text-align-last: center;
+  margin-bottom: 4px;
 }
 .content-right {
   text-align-last: center;
@@ -226,3 +202,32 @@ body {
   background-position: center;
   background-repeat: no-repeat;
 }
+
+@media only screen and (max-width: 768px) {
+  /* For mobile phones: */
+  .positionBox {
+    display: none;
+  }
+  .playerScreen {
+    display: block;
+    text-align: -webkit-center;
+    margin-left: 0px;
+  }
+
+  .wave {
+    display: none;
+  }
+
+  .configuration {
+    width: 28vw;
+  }
+}
+
+/* waves: CodePen Home
+WAVE CSS
+Hyu Lee
+https://codepen.io/buyubaya/pen/QrbdLE
+
+button: https://codepen.io/nikola1970/pen/oxXbmb
+
+typography title: https://fonts.google.com/specimen/Titan+One */
