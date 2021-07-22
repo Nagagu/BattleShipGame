@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/BattleShipGame/static/css/main.b2ea1090.chunk.css",
-    "main.js": "/BattleShipGame/static/js/main.369f6f80.chunk.js",
-    "main.js.map": "/BattleShipGame/static/js/main.369f6f80.chunk.js.map",
+    "main.js": "/BattleShipGame/static/js/main.13c147a8.chunk.js",
+    "main.js.map": "/BattleShipGame/static/js/main.13c147a8.chunk.js.map",
     "runtime-main.js": "/BattleShipGame/static/js/runtime-main.f10b7c03.js",
     "runtime-main.js.map": "/BattleShipGame/static/js/runtime-main.f10b7c03.js.map",
     "static/js/2.75e56f04.chunk.js": "/BattleShipGame/static/js/2.75e56f04.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.f10b7c03.js",
     "static/js/2.75e56f04.chunk.js",
     "static/css/main.b2ea1090.chunk.css",
-    "static/js/main.369f6f80.chunk.js"
+    "static/js/main.13c147a8.chunk.js"
   ]
 }
