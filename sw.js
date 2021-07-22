@@ -9,13 +9,13 @@ const APP_SHELL_INMUTABLE = [
 ];
 
 self.addEventListener("install", (e) => {
-  const cacheStatic = caches
-    .open(STATIC_CHACHE)
-    .then((cache) => cache.addAll(APP_SHELL));
-  const cacheInmutable = caches
-    .open(INMUTABLE_CHACHE)
-    .then((cache) => cache.addAll(APP_SHELL_INMUTABLE));
-  e.waitUntil(Promise.all([cacheStatic, cacheInmutable]));
+  // const cacheStatic = caches
+  //   .open(STATIC_CHACHE)
+  //   .then((cache) => cache.addAll(APP_SHELL));
+  // const cacheInmutable = caches
+  //   .open(INMUTABLE_CHACHE)
+  //   .then((cache) => cache.addAll(APP_SHELL_INMUTABLE));
+  // e.waitUntil(Promise.all([cacheStatic, cacheInmutable]));
 });
 
 self.addEventListener("activate", (e) => {
@@ -26,4 +26,28 @@ self.addEventListener("activate", (e) => {
       }
     });
   });
+});
+
+self.addEventListener("fetch", function (event) {
+  event.respondWith(
+    caches.open(DYNAMIC_CACHE).then(function (cache) {
+      return cache.match(event.request).then(function (response) {
+        var fetchPromise = fetch(event.request).then(function (
+          networkResponse
+        ) {
+          if (
+            event.request.method == "GET" &&
+            !event.request.url.includes("maps.google") &&
+            !event.request.url.includes("maps.gstatic") &&
+            !event.request.url.includes("chrome-extension") &&
+            !event.request.url.includes("eview") //quitar estooo
+            //&& !event.request.url.includes(process.env.REACT_APP_API_ENDPOINT)
+          )
+            cache.put(event.request, networkResponse.clone());
+          return networkResponse;
+        });
+        return response || fetchPromise;
+      });
+    })
+  );
 });
