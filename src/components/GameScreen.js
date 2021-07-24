@@ -13,7 +13,8 @@ export const GameScreen = () => {
   useEffect(() => {
     if (startedGame) {
       Swal.fire({
-        title: "Sink " + boards[0].boxesQuant / 2 + " opponent's ships to win",
+        title:
+          "Sink " + boards[0].boxesQuant * 0.25 + " opponent's ships to win",
         timer: 6000,
         willClose: () => {
           clearInterval();
@@ -42,20 +43,6 @@ export const GameScreen = () => {
           Back
         </button>
       </div>
-
-      {/* <div className="boardSizeSection">
-        {" "}
-        <h4>Player 1</h4> <Configuration configKey={"Player 1"} />
-        <h4>Player 2</h4>
-        <Configuration configKey={"Player 2"} />
-        <button
-          //visibility={gameStarted ? "hidden" : " "}
-          className={startedGame ? "hidden" : " "}
-          onClick={handleClickStart}
-        >
-          Start Game
-        </button>
-      </div> */}
       {startedGame ? (
         <>
           <PlayerScreen configKey={"Player 1"} />

@@ -271,6 +271,12 @@ body {
   .configuration {
     width: 28vw;
   }
+  .backButton {
+    left: 44vw;
+    top: -3vh;
+    padding: 5px 12px;
+    font-size: 17px;
+  }
 }
 
 /* waves: CodePen Home

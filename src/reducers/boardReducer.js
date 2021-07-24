@@ -124,7 +124,7 @@ function getBoxesList(numRows, numColumns) {
     }
   }
 
-  const randomBoxes = getRandomElements(boxesList, numColumns * 2);
+  const randomBoxes = getRandomElements(boxesList, boxesList.length * 0.25);
   randomBoxes.map((o) => (o.ship = true));
   return boxesList;
 }
