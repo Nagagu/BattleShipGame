@@ -1,7 +1,9 @@
 export const types = {
   boxesBoard: "[Config] BoxesBoard",
 
-  BoxStateOnClick: "[Interaction] BoxStatesOnClick",
+  boxStateOnClick: "[Interaction] BoxStatesOnClick",
 
-  startGame: "[Game] Iniciar juego",
+  startGame: "[Game] Start game",
+
+  reset: "[Game] Restart game",
 };

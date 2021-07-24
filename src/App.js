@@ -12,4 +12,13 @@ function App() {
   );
 }
 
+var swLocation = "./sw.js";
+if (navigator.serviceWorker) {
+  var url = window.location.href;
+
+  if (url.includes("localhost")) {
+    swLocation = "./BattleShipGame/sw.js";
+  }
+  navigator.serviceWorker.register(swLocation);
+}
 export default App;

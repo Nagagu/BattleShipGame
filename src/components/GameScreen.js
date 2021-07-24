@@ -2,26 +2,31 @@ import React, { useEffect, useState } from "react";
 import { PlayerScreen } from "./PlayerScreen";
 import { useDispatch, useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import { startGame } from "../actions/gameInteraction";
+import { startGame, reset } from "../actions/gameInteraction";
 import { Configuration } from "./Configuration";
 
 export const GameScreen = () => {
-  const [gameStarted, setgameStarted] = useState(false);
   const { startedGame } = useSelector((state) => state.game);
+  const { boards } = useSelector((state) => state.game);
+  console.log(boards[0].boxesQuant);
 
-  // useEffect(() => {
-  //   Swal.fire({
-  //     title: "Ready?, Go!",
-  //     timer: 2000,
-  //     willClose: () => {
-  //       clearInterval();
-  //     },
-  //   });
-  // }, []);
+  useEffect(() => {
+    if (startedGame) {
+      Swal.fire({
+        title: "Sink " + boards[0].boxesQuant / 2 + " opponent's ships to win",
+        timer: 6000,
+        willClose: () => {
+          clearInterval();
+        },
+      });
+    }
+  }, [startedGame]);
   const dispatch = useDispatch();
   const handleClickStart = () => {
-    // setgameStarted(true);
     dispatch(startGame());
+  };
+  const handleClickBackButton = () => {
+    dispatch(reset());
   };
 
   return (
@@ -29,6 +34,13 @@ export const GameScreen = () => {
       <div className="title">
         {" "}
         <h1> BattleShip Game </h1>
+        <button
+          style={{ display: startedGame ? "inline-block" : "none" }}
+          className="backButton"
+          onClick={handleClickBackButton}
+        >
+          Back
+        </button>
       </div>
 
       {/* <div className="boardSizeSection">
@@ -46,7 +58,6 @@ export const GameScreen = () => {
       </div> */}
       {startedGame ? (
         <>
-          {" "}
           <PlayerScreen configKey={"Player 1"} />
           <PlayerScreen configKey={"Player 2"} />{" "}
         </>
@@ -65,8 +76,6 @@ export const GameScreen = () => {
                 <Configuration configKey={"Player 1"} />
               </div>
             </div>
-            {/* </div> */}
-            {/* <div className="row"> */}
             <div className="col-sm-12 content-right">
               <div className="content-right"></div>
               <div className="configKey">
@@ -79,7 +88,6 @@ export const GameScreen = () => {
             {" "}
             <div className="col-sm-12 content-right">
               <button
-                //visibility={gameStarted ? "hidden" : " "}
                 className={"startButton" + (startedGame ? +"hidden" : " ")}
                 onClick={handleClickStart}
               >

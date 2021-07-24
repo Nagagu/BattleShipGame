@@ -14,7 +14,8 @@ export const Board = ({ configKey }) => {
       <div>
         <div
           className={
-            "board " + (playerTurn === configKey ? "boardDisabled" : "")
+            "board " +
+            (playerTurn === configKey ? "boardDisabled" : "boardEnabled")
           }
           style={{
             "grid-template-columns": "1fr ".repeat(configboard.columns),

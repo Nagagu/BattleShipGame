@@ -68,6 +68,8 @@ body {
   /* position: relative; */
   /* font-family: Arial, Helvetica, sans-serif; */
   font-family: "Titan One", cursive;
+  /* display: inline-block;
+  width: 100vw; */
 }
 
 .title h1 {
@@ -75,18 +77,63 @@ body {
   text-align: center;
   padding-top: 5vh;
   padding-bottom: 20px;
+  /* display: inline-block;
+  margin-left: 29vw; */
 
   /* background: -webkit-linear-gradient(yellow, red); */
-  background: rgb(9, 57, 70);
+  /* background: rgb(9, 57, 70);
   background: linear-gradient(
     0deg,
     rgba(9, 57, 70, 1) 0%,
     rgba(42, 144, 163, 1) 35%,
     rgba(46, 224, 246, 1) 77%
+  ); */
+  background: rgb(84, 75, 238);
+  background: linear-gradient(
+    0deg,
+    rgba(84, 75, 238, 1) 0%,
+    rgba(17, 193, 223, 1) 64%,
+    rgba(102, 217, 251, 1) 84%
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   color: tomato;
+}
+
+/* .backButton {
+  margin-left: 5vw;
+  width: 5vw;
+  height: 4vh;
+  border-radius: 5px;
+  color: #f9f8f7;
+  font-family: Arial;
+  font-size: larger;
+  border: white;
+  background-color: #e8b721;
+} */
+
+.backButton {
+  position: absolute;
+  left: 9vw;
+  top: -9vh;
+  font-family: Arial;
+  border: white;
+  padding: 5px 23px;
+  background-color: #ecb040;
+  box-shadow: 0px 5px 0px 0px #ce8b46;
+  outline: none;
+  border-radius: 5px;
+  font-size: 22px;
+  text-decoration: none;
+  color: #fff;
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  z-index: 99999;
+}
+.backButton:hover {
+  background-color: #c59130;
+  box-shadow: 0px 5px 0px 0px #4b3a29;
 }
 .hidden {
   visibility: hidden;
@@ -94,17 +141,16 @@ body {
 
 .playerScreen {
   display: inline-block;
-  margin-top: 5vh;
   margin-left: 14vw;
 }
 .configKey {
-  color: #1d9292;
+  color: #1d91ca;
   margin-bottom: 15px;
 }
 .chooseboard {
   text-align: -webkit-center;
   margin: 2vh 0px 4vh 0px;
-  color: #044a5f;
+  color: #324d9c;
 }
 .content-left {
   text-align-last: center;
@@ -158,9 +204,12 @@ body {
   border: 1px rgb(253, 252, 252) solid;
   /* background-color: rgb(96, 197, 208); */
 }
-.box :hover {
-  background-color: rgb(221, 102, 47);
+.boardEnabled .box:hover {
+  background-color: rgb(247 251 247 / 47%);
 }
+/* .boardDisabled > .box:hover {
+  background-color: rgb(247 251 247 / 0%);
+} */
 
 .board {
   display: grid;
@@ -175,6 +224,7 @@ body {
     rgba(17, 193, 223, 1) 64%,
     rgba(102, 217, 251, 1) 84%
   );
+  filter: drop-shadow(20px 8px 6px rgb(0 0 0 / 30%));
 }
 .boardDisabled {
   transition-delay: 0.5s;
@@ -188,8 +238,8 @@ body {
 }
 
 .attackedBox {
-  background-color: rgb(212, 71, 14);
-  background-image: url("bomba.png");
+  background-color: rgb(241 189 92);
+  background-image: url("barco.png");
   background-size: 60%;
   background-position: center;
   background-repeat: no-repeat;

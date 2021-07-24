@@ -22,7 +22,7 @@ const boards = [
 ];
 const initialState = {
   boards: boards,
-  playerTurn: getRandomElements(boards, 1)[0].configKey,
+  playerTurn: getRandomElements(boards, 1)[0].configKey, //player turn random at start
   startedGame: false,
 };
 
@@ -55,7 +55,7 @@ export const boardReducer = (state = initialState, action) => {
         ],
       };
 
-    case types.BoxStateOnClick:
+    case types.boxStateOnClick:
       const activeBoard = state.boards.filter(
         (o) => o.configKey === action.payload.board.configKey
       )[0];
@@ -76,7 +76,7 @@ export const boardReducer = (state = initialState, action) => {
 
       if (boxesWithShip.length === attackedBoxesWithShip.length) {
         Swal.fire({
-          title: "You win!",
+          title: state.playerTurn + " wins!",
           imageUrl: "https://picsum.photos/id/828/350/250",
           imageWidth: 350,
           imageHeight: 250,
@@ -94,6 +94,12 @@ export const boardReducer = (state = initialState, action) => {
 
       return {
         ...state,
+      };
+
+    case types.reset:
+      return {
+        ...state,
+        startedGame: false,
       };
 
     default:
@@ -120,6 +126,5 @@ function getBoxesList(numRows, numColumns) {
 
   const randomBoxes = getRandomElements(boxesList, numColumns * 2);
   randomBoxes.map((o) => (o.ship = true));
-  console.log(boxesList);
   return boxesList;
 }
