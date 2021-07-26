@@ -8,11 +8,11 @@ This is a simple Battleship game. On this project I try to show my skills using 
 
 ## Libraries and third parties material
 
--Bootstrap
--Animator.css
--SweetAlert2
--WAVE CSS by Hyu Lee: https://codepen.io/buyubaya/pen/QrbdLE
--Typography title: https://fonts.google.com/specimen/Titan+One
+- Bootstrap
+- Animator.css
+- SweetAlert2
+- WAVE CSS by Hyu Lee: https://codepen.io/buyubaya/pen/QrbdLE
+- Typography title: https://fonts.google.com/specimen/Titan+One
 
 ## Progressive Web App
 
