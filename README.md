@@ -16,7 +16,7 @@ This is a simple Battleship game. On this project I try to show my skills using 
 
 ## Progressive Web App
 
-This project is a PWA and u can install on any device as normal application to play offline
+This project is a PWA and you can install on any device as normal application to play offline
 
 ## How to start the project
 
