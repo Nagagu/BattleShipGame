@@ -4,7 +4,7 @@ This project was created with [Create React App](https://github.com/facebook/cre
 
 ## Project Explanation
 
-This is a simple Battleship game. On this project I try to show my skills using React, Redux and CSS. Some features was added just to practice y maybe doesn't make any sense in terms of usability, like for example the different board size configuration, but I made it like this for a matter of training.
+This is a simple Battleship game. On this project I try to show my skills using React, Redux and CSS. Some features was added just to practice and maybe doesn't make any sense in terms of usability, like for example the different board size configuration, but I made it like this for a matter of training.
 
 ## Libraries and third parties material
 
