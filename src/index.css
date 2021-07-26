@@ -255,6 +255,10 @@ body {
 
 @media only screen and (max-width: 768px) {
   /* For mobile phones: */
+
+  .title h1 {
+    font-size: 7vh;
+  }
   .positionBox {
     display: none;
   }
@@ -268,14 +272,19 @@ body {
     display: none;
   }
 
+  .board {
+    margin-bottom: 5vh;
+    width: 45vw;
+    height: 42vw;
+  }
   .configuration {
     width: 28vw;
   }
   .backButton {
-    left: 44vw;
+    left: 41vw;
     top: -3vh;
-    padding: 5px 12px;
-    font-size: 17px;
+    padding: 1px 12px;
+    font-size: 15px;
   }
 }
 
