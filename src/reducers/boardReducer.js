@@ -24,6 +24,7 @@ const initialState = {
   boards: boards,
   playerTurn: getRandomElements(boards, 1)[0].configKey, //player turn random at start
   startedGame: false,
+  finishedGame: false,
 };
 
 export const boardReducer = (state = initialState, action) => {
@@ -75,13 +76,7 @@ export const boardReducer = (state = initialState, action) => {
       );
 
       if (boxesWithShip.length === attackedBoxesWithShip.length) {
-        Swal.fire({
-          title: state.playerTurn + " wins!",
-          imageUrl: "https://picsum.photos/id/828/350/250",
-          imageWidth: 350,
-          imageHeight: 250,
-          imageAlt: "Custom image",
-        });
+        state.finishedGame = true;
       }
       switch (state.playerTurn) {
         case "Player 1":
@@ -100,6 +95,7 @@ export const boardReducer = (state = initialState, action) => {
       return {
         ...state,
         startedGame: false,
+        finishedGame: false,
       };
 
     default:

@@ -6,9 +6,21 @@ import { startGame, reset } from "../actions/gameInteraction";
 import { Configuration } from "./Configuration";
 
 export const GameScreen = () => {
-  const { startedGame } = useSelector((state) => state.game);
-  const { boards } = useSelector((state) => state.game);
-  console.log(boards[0].boxesQuant);
+  const { startedGame, playerTurn, finishedGame, boards } = useSelector(
+    (state) => state.game
+  );
+
+  useEffect(() => {
+    if (finishedGame) {
+      Swal.fire({
+        title: playerTurn + " wins!",
+        imageUrl: "https://picsum.photos/id/828/350/250",
+        imageWidth: 350,
+        imageHeight: 250,
+        imageAlt: "Custom image",
+      }).then(() => dispatch(reset()));
+    }
+  }, [finishedGame]);
 
   useEffect(() => {
     if (startedGame) {
